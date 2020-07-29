@@ -22,7 +22,20 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        textTransform: 'capitalize',
+    },
+    textfield: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        textTransform: 'capitalize',
     },
     form: {
         width: '100%', // Fix IE 11 issue.
@@ -31,16 +44,6 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
-    root: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        borderRadius: 3,
-        border: 0,
-        color: 'white',
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
-    label: {
-        textTransform: 'capitalize',
     },
 }));
 
@@ -55,11 +58,7 @@ export default function SignUp() {
             <Container component="main" maxWidth="xs" style={{ backgroundColor: 'black' }}>
                 <CssBaseline />
                 <div className={classes.paper}>
-                    <Avatar className={classes.avatar} classes={{
-                        root: classes.root,
-                        label: classes.label,
-                    }}>
-                    </Avatar>
+                    <Avatar className={classes.avatar}></Avatar>
                     <Typography component="h1" variant="h5" style={{ color: 'white' }}>
                         SING UP
                     </Typography>
@@ -75,10 +74,7 @@ export default function SignUp() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
-                                    classes={{
-                                        root: classes.root,
-                                        label: classes.label,
-                                    }}
+                                    className={classes.textfield}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -90,10 +86,7 @@ export default function SignUp() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="lname"
-                                    classes={{
-                                        root: classes.root,
-                                        label: classes.label,
-                                    }}
+                                    className={classes.textfield}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -105,10 +98,7 @@ export default function SignUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
-                                    classes={{
-                                        root: classes.root,
-                                        label: classes.label,
-                                    }}
+                                    className={classes.textfield}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -121,10 +111,7 @@ export default function SignUp() {
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
-                                    classes={{
-                                        root: classes.root,
-                                        label: classes.label,
-                                    }}
+                                    className={classes.textfield}
                                 />
                             </Grid>
                         </Grid>
@@ -151,6 +138,6 @@ export default function SignUp() {
                     </form>
                 </div>
             </Container>
-        </div>
+        </div >
     );
 }

@@ -11,6 +11,8 @@ import Menu from '@material-ui/core/Menu';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Avatar from '@material-ui/core/Avatar';
+
 import NotificationsIcon from '@material-ui/icons/Notifications';
 // import MoreIcon from '@material-ui/icons/MoreVert';
 import grey from '@material-ui/core/colors/grey';
@@ -67,6 +69,15 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             width: '20ch',
         },
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        textTransform: 'capitalize',
     },
 }));
 
@@ -137,7 +148,8 @@ export default function Header() {
                     aria-haspopup="true"
                     color="inherit"
                 >
-                    <AccountCircle />
+                    <Avatar className={classes.avatar}></Avatar>
+                    {/* <AccountCircle /> */}
                 </IconButton>
                 <p>Profile</p>
             </MenuItem>
@@ -179,7 +191,8 @@ export default function Header() {
                             onClick={handleProfileMenuOpen}
                             color="inherit"
                         >
-                            <AccountCircle />
+                            {/* <AccountCircle /> */}
+                            <Avatar className={classes.avatar}></Avatar>
                         </IconButton>
                     </div>
                 </Toolbar>

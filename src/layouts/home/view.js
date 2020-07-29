@@ -38,7 +38,7 @@ const View = props => {
 
                 <Grid>
                     <h1 style={{ color: 'red' }}>movies</h1>
-                    {movieList.map((movie, i) => (
+                    {/* {movieList.map((movie, i) => (
                         <div key={movie.props.children.id} className="carousel-cell">
                             <div className="movie_card" key={movie.props.children.id} id={movie.props.children.name}>
                                 <a onClick={click_movie(movie.props.children.name)}>
@@ -68,7 +68,7 @@ const View = props => {
                                 </a>
                             </div>
                         </div>
-                    ))}
+                    ))} */}
                 </Grid>
             </Fragment>
         </div >

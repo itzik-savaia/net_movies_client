@@ -6,10 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import './loginApp.scss';
+import './forgot_pass.scss';
 import HomeApp from '../home/homeApp';
-import SingupApp from '../singup/singupApp';
-import ForgotApp from '../forgot_password/forgot_pass.App';
+import LoginApp from '../login/loginApp';
 import { Switch, Route, Link, useLocation } from "react-router-dom";
 
 
@@ -60,7 +59,7 @@ export default function SignIn() {
                 <div className={classes.paper}>
                     <Avatar className={classes.avatar}></Avatar>
                     <Typography component="h1" variant="h5" style={{ color: 'white' }}>
-                        SING IN
+                        FORGOT PASSWORD
                     </Typography>
                     <form className={classes.form} noValidate>
                         <TextField
@@ -75,18 +74,6 @@ export default function SignIn() {
                             autoFocus
                             className={classes.textfield}
                         />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            className={classes.textfield}
-                        />
                         <Button
                             type="submit"
                             fullWidth
@@ -94,23 +81,17 @@ export default function SignIn() {
                             color='secondary'
                             className={classes.submit}
                         >
-                            Sing In
+                            Send email
                         </Button>
                         <Grid container>
-                            <Grid item xs>
-                                <Link to="/forgot">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
                             <Grid item>
-                                <Link to="/singup">
-                                    Don't have an account? Sign Up
+                                <Link to="/login">
+                                    Back to Login
                                 </Link>
                             </Grid>
                             <Switch location={background || location}>
-                                <Route path="/singup" children={<SingupApp />} />
-                                <Route path="/forgot" children={<ForgotApp />} />
                                 <Route exact path="/" children={<HomeApp />} />
+                                <Route path="/login" children={<LoginApp />} />
                             </Switch>
                         </Grid>
                     </form>
