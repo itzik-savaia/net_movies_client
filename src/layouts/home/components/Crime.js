@@ -20,7 +20,7 @@ class Crime extends Component {
             className: "center",
             centerMode: false,
             infinite: true,
-            centerPadding: "50px",
+            centerPadding: "60px",
             slidesToShow: 3,
             speed: 600,
             draggable: false,
