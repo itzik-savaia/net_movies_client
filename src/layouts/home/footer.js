@@ -42,7 +42,7 @@ export default function Footer() {
             <AppBar position="static" className={classes.color}>
                 <Toolbar className={classes.toolbar}>
                     <Typography className={classes.title} variant="h5" noWrap>
-                        <BottomNavigation value={value} onChange={handleChange} className={classes.root, classes.color}>
+                        <BottomNavigation value={value} onChange={handleChange} className={classes.root & classes.color}>
                             <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
                             <BottomNavigationAction label="favorites" value="favorites" icon={<FavoriteIcon />} />
                             <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />

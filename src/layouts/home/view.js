@@ -1,10 +1,10 @@
-import React, { Fragment, useState, useEffect, } from 'react';
+import React, { useEffect, } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Fetch_All_Movies } from '../../app/dispatch';
 import './scss/view.scss';
 
 // Components
-// import Try from './components/try';
+import Crime from './components/Crime';
 
 
 // Material-UI
@@ -30,15 +30,19 @@ const View = props => {
     useEffect(() => {
         dispatch(Fetch_All_Movies());
     }, []);
-    const click_movie = (name) => console.log('click', name);
 
     return (
         <div>
-            <Fragment>
 
-                <Grid>
-                    <h1 style={{ color: 'red' }}>movies</h1>
-                    {/* {movieList.map((movie, i) => (
+            <Grid container>
+                <Grid item xs>
+                    <Crime />
+                </Grid>
+                <Grid item>
+                </Grid>
+            </Grid>
+            {/* <h1 style={{ color: 'red' }}>movies</h1> */}
+            {/* {movieList.map((movie, i) => (
                         <div key={movie.props.children.id} className="carousel-cell">
                             <div className="movie_card" key={movie.props.children.id} id={movie.props.children.name}>
                                 <a onClick={click_movie(movie.props.children.name)}>
@@ -69,8 +73,6 @@ const View = props => {
                             </div>
                         </div>
                     ))} */}
-                </Grid>
-            </Fragment>
         </div >
     );
 }
