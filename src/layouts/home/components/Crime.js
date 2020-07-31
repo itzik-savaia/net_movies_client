@@ -14,21 +14,41 @@ class Crime extends Component {
         this.state = {
         }
     }
-
+    state = {
+        display: true,
+        width: 600
+    };
     render() {
         const settings = {
             className: "center",
             centerMode: false,
             infinite: true,
-            centerPadding: "60px",
-            slidesToShow: 3,
+            centerPadding: "10px",
+            slidesToShow: 7,
             speed: 600,
             draggable: false,
+            slidesToScroll: 3,
+            dots: true,
+            appendDots: dots => (
+                <div
+                    style={{
+                        borderRadius: "100px",
+                        padding: "10px",
+                        textAlign: "end",
+                    }}
+                >
+                    <ul style={{ margin: "0px" }}> {dots} </ul>
+                </div>
+            ),
         };
 
         return (
             <div>
-                <h1>Crime</h1>
+                <div className="row-header">
+                    <div className="rowTitle">
+                        <div className="row-header-title">Crime</div>
+                    </div>
+                </div>
                 <div className='top'>
                     <Slider {...settings}>
                         {Object.keys(this.props.movies).map((movie, i) => (
@@ -48,6 +68,7 @@ class Crime extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         movies: state.movies
