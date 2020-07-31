@@ -16,7 +16,8 @@ class Crime extends Component {
     }
     state = {
         display: true,
-        width: 600
+        width: 600,
+        // padding: "0px 5px 0px 5px",
     };
     render() {
         const settings = {
@@ -29,6 +30,53 @@ class Crime extends Component {
             draggable: false,
             slidesToScroll: 3,
             dots: true,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 750,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                }
+            ],
             appendDots: dots => (
                 <div
                     style={{
