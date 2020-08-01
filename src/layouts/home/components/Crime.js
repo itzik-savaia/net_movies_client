@@ -7,6 +7,9 @@ import './scss/Crime.scss';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { Button, Link } from '@material-ui/core';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import IconButton from '@material-ui/core/IconButton';
+// import '~material-design-icons/iconfont/material-icons.css';
 
 
 class Crime extends Component {
@@ -132,9 +135,10 @@ class Crime extends Component {
                                 <Grid item xs={3}>
                                     <Paper onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>
                                         {this.props.movies[movie].photos.map(photo => (
-                                            <Link onClickCapture={movieClike.bind(this.props.movies[movie])} key={this.props.movies[movie].id}>
+                                            <div className="container" key={this.props.movies[movie].id}>
                                                 <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
-                                            </Link>
+                                                <button className="btn" key={this.props.movies[movie].id} onClickCapture={movieClike.bind(this.props.movies[movie])}> ^ </button>
+                                            </div>
                                         ))}
                                     </Paper>
                                 </Grid>
@@ -142,6 +146,7 @@ class Crime extends Component {
                         ))}
                     </Slider>
                 </div>
+
             </div >
         );
     }
