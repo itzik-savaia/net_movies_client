@@ -10,18 +10,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 
 import grey from '@material-ui/core/colors/grey';
 import './scss/header.scss';
 
-
 const StyledMenu = withStyles({
     paper: {
-        border: '1px solid #d3d4d5',
+        backgroundColor: "#212121",
+        color: "#e5e5e5",
     },
 })((props) => (
     <Menu
@@ -41,7 +42,12 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
     root: {
         '&:focus': {
-            backgroundColor: theme.palette.primary.main,
+            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            borderRadius: 3,
+            border: 0,
+            color: 'white',
+            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+            textTransform: 'capitalize',
             '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
                 color: theme.palette.common.white,
             },
@@ -125,16 +131,6 @@ export default function Header() {
             <AppBar position="static" className={classes.color}>
                 <Toolbar>
                     <h3 color='secondary'>NetMovies</h3>
-                    {/* <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{ root: classes.inputRoot, input: classes.inputInput, }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div> */}
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton
@@ -156,9 +152,9 @@ export default function Header() {
                         >
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <SendIcon fontSize="small" />
+                                    <SentimentSatisfiedIcon fontSize="sentimentSatisfied" />
                                 </ListItemIcon>
-                                <ListItemText primary="Sent mail" />
+                                <ListItemText primary={`${'Itzik'}`} />
                             </StyledMenuItem>
                             <StyledMenuItem>
                                 <ListItemIcon>
@@ -168,9 +164,9 @@ export default function Header() {
                             </StyledMenuItem>
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <InboxIcon fontSize="small" />
+                                    <ExitToAppIcon fontSize="small" />
                                 </ListItemIcon>
-                                <ListItemText primary="Inbox" />
+                                <ListItemText primary="Logout" />
                             </StyledMenuItem>
                         </StyledMenu>
                     </div>

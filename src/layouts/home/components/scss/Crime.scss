@@ -186,8 +186,8 @@
 //   line-height: 1;
 // }
 .top {
-    max-width: 100%;
-    padding-left: 2%;
+    // max-width: 100%;
+    margin: 0 4% .5em 4%;
     
 }
 .top_small_Picture {
@@ -199,31 +199,75 @@
 .slick-initialized .slick-slide {
     padding: 0px 5px 0px 5px;
 }
-//button
-.slick-prev {
-    z-index: 1;
-    left: 5px;
-    background-color: rgba(20,20,20,.5);;
+
+.slick-next, .slick-prev {
     position: absolute;
-    width: 4%;
-    display: flex;
-    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    z-index: 1;
+    height: 100%;
+    width: 20%;
+    &:before {
+        width: 50%;
+        font-weight: bold;
+        position: absolute;
+        color: #fff;
+        line-height: 0;
+        opacity: .100;
+        text-decoration: none;
+        font-size: 2rem;
+        font-family: monospace;
+    }
+    &:hover {
+        color: #fff;
+    }
 }
 .slick-next {
-    z-index: 1;
-    right: 5px;
-    background-color: rgba(20,20,20,.5);
-    position: absolute;
-    width: 4%;
-    display: flex;
-    text-align: center;
+    right: 0%;
+    background: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    &:before {
+        right:-10%;
+        content: ">";
+    }
+    &:hover {
+        background: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    }
 }
-//button
+.slick-prev {
+    left: 0%;
+    background: linear-gradient(to left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    &:before {
+        left:-10%;
+        content: "<";
+    }
+    &:hover {
+        background: linear-gradient(to left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+    }
+}
+
 .small_Picture {
-    // max-width: 45%;
     width: 175px;
     height: 250px;
 }
+.small_Picture:hover{
+    z-index: 1;
+    transform: translateY(0)  translateZ(50%);
+    transition: transform .7s; 
+    margin: 0 auto;
+}
+// &:hover{
+//     transition-delay: .5s;
+//     width: 400px;
+//     height: 250px;
+    
+//     a{
+//         .small_Picture{
+//             transform: translateY(0) translateX(-50%);
+//             transition-delay: .75s;
+//             opacity: 1;
+//         }
+//     }
+// }
 .row-header-title {
     display: table-cell;
     vertical-align: bottom;
@@ -245,14 +289,9 @@
     min-width: 6em;
 }
 @media only screen and (max-width: 600px) {
-    .top{
-       padding-left: 5%;
-    }
     .top_small_Picture {
-        // max-width: 65%;
         height: 150px;
         width: 0% !important;
-
     }
     .small_Picture {
         height: 150px ;

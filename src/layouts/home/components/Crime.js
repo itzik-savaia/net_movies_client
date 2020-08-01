@@ -6,25 +6,33 @@ import { connect } from 'react-redux';
 import './scss/Crime.scss';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { Button, Link } from '@material-ui/core';
 
 
 class Crime extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        }
+            display: true,
+            width: 600,
+        };
     }
-    state = {
-        display: true,
-        width: 600,
-        // padding: "0px 5px 0px 5px",
-    };
+
     render() {
+        const movieClike = (e) => {
+            console.log(e._targetInst.key, 'The link was clicked.');
+        }
+        const MouseEnter = () => {
+
+        }
+        const MouseLeave = () => {
+
+        }
+
         const settings = {
             className: "center",
             centerMode: false,
             infinite: true,
-            centerPadding: "10px",
             slidesToShow: 7,
             speed: 600,
             draggable: false,
@@ -83,13 +91,33 @@ class Crime extends Component {
                         borderRadius: "100px",
                         padding: "10px",
                         textAlign: "end",
+                        color: "#e5e5e5",
+                        height: "30px",
                     }}
                 >
                     <ul style={{ margin: "0px" }}> {dots} </ul>
                 </div>
             ),
+            customPaging: i => (
+                <div
+                    style={{
+                        marginTop: "270px",
+                        width: "30px",
+                        color: "#e5e5e5",
+                        border: "0.5px #e5e5e5 solid",
+                        borderRadius: "8px",
+                        textAlign: "center",
+                        backgroundColor: "rgba(20, 20, 20, 0.5)",
+                        lineHeight: "1.25vw",
+                        fontSize: "1.4vw",
+                        verticalAlign: "bottom",
+                        display: "table-cell",
+                    }}
+                >
+                    {i + 1}
+                </div>
+            ),
         };
-
         return (
             <div>
                 <div className="row-header">
@@ -100,11 +128,13 @@ class Crime extends Component {
                 <div className='top'>
                     <Slider {...settings}>
                         {Object.keys(this.props.movies).map((movie, i) => (
-                            <div key={this.props.movies[movie].id} className="top_small_Picture">
+                            <div key={this.props.movies[movie].id} className="top_small_Picture" >
                                 <Grid item xs={3}>
-                                    <Paper>
+                                    <Paper onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>
                                         {this.props.movies[movie].photos.map(photo => (
-                                            <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
+                                            <Link onClickCapture={movieClike.bind(this.props.movies[movie])} key={this.props.movies[movie].id}>
+                                                <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
+                                            </Link>
                                         ))}
                                     </Paper>
                                 </Grid>
@@ -112,7 +142,7 @@ class Crime extends Component {
                         ))}
                     </Slider>
                 </div>
-            </div>
+            </div >
         );
     }
 }
