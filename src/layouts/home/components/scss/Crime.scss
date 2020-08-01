@@ -1,5 +1,4 @@
 // @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
-@import "~/node_modules/material-design-icons/iconfont/material-icons.css";
 
 
 
@@ -187,13 +186,12 @@
 //   text-align: center;
 //   line-height: 1;
 // }
-.container {
-    position: relative;
-    width: 100%;
-  }
+
   .container .btn {
     position: absolute;
-    top: 80%;
+    // top: 79%;
+    height: 255px;
+    bottom: 0%;
     width: 11rem;
     background-color: transparent;
     color: transparent;
@@ -207,13 +205,13 @@
     font-size: 36px;
     transform: rotate(180deg);
     font-family: cursive;
+    display: grid;
     &:hover{
         color: #b71c1c;
+        background: linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
     }
 }
-.container .btn:hover {
-    background: linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
-}
+
 .MuiSvgIcon-root {
     font-size: 3.5rem;}
 .top {
@@ -272,30 +270,23 @@
         background: linear-gradient(to left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
     }
 }
+#IDSmall_Picture {
+    &:hover {
+        background: linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);    
 
+    }
+}
 .small_Picture {
     width: 175px;
     height: 250px;
+    &:hover {
+        z-index: 1;
+        transform: translateY(0)  translateZ(50%);
+        transition: transform .7s; 
+        margin: 0 auto;
+        background: linear-gradient(to top,rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);    
+    }
 }
-.small_Picture:hover{
-    z-index: 1;
-    transform: translateY(0)  translateZ(50%);
-    transition: transform .7s; 
-    margin: 0 auto;
-}
-// &:hover{
-//     transition-delay: .5s;
-//     width: 400px;
-//     height: 250px;
-    
-//     a{
-//         .small_Picture{
-//             transform: translateY(0) translateX(-50%);
-//             transition-delay: .75s;
-//             opacity: 1;
-//         }
-//     }
-// }
 .row-header-title {
     display: table-cell;
     vertical-align: bottom;
@@ -333,6 +324,7 @@
     }
     .container .btn {
         width: 6rem;
+        top: 65%;
     }
 
 }

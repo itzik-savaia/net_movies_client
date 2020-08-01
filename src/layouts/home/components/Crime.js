@@ -133,14 +133,16 @@ class Crime extends Component {
                         {Object.keys(this.props.movies).map((movie, i) => (
                             <div key={this.props.movies[movie].id} className="top_small_Picture" >
                                 <Grid item xs={3}>
-                                    <Paper onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>
-                                        {this.props.movies[movie].photos.map(photo => (
-                                            <div className="container" key={this.props.movies[movie].id}>
-                                                <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
-                                                <button className="btn" key={this.props.movies[movie].id} onClickCapture={movieClike.bind(this.props.movies[movie])}> ^ </button>
-                                            </div>
-                                        ))}
-                                    </Paper>
+                                    <div className="container" key={this.props.movies[movie].id}>
+                                        <Paper onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>
+                                            {this.props.movies[movie].photos.map(photo => (
+                                                <div>
+                                                    <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
+                                                    <button className="btn" key={this.props.movies[movie].id} onClickCapture={movieClike.bind(this.props.movies[movie])}> ^ </button>
+                                                </div>
+                                            ))}
+                                        </Paper>
+                                    </div>
                                 </Grid>
                             </div>
                         ))}
