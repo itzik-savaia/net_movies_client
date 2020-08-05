@@ -6,11 +6,8 @@ import { connect } from 'react-redux';
 import './scss/Crime.scss';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Button, Link } from '@material-ui/core';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import IconButton from '@material-ui/core/IconButton';
-// import '~material-design-icons/iconfont/material-icons.css';
-
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 class Crime extends Component {
     constructor(props) {
@@ -18,20 +15,32 @@ class Crime extends Component {
         this.state = {
             display: true,
             width: 600,
+            movies: [],
+            find: {},
+            movie_id: String,
         };
     }
 
     render() {
         const movieClike = (e) => {
-            console.log(e._targetInst.key, 'The link was clicked.');
-        }
-        const MouseEnter = () => {
+            this.state.movie_id = e.id;
+            if (this.state.movies.length === 0)
+                this.state.movies.push(Object.values(this.props.movies));
 
+            this.state.movies.forEach(element => {
+                this.state.find = element.find(movie => movie.id === e.id)
+            });
         }
-        const MouseLeave = () => {
-
+        const MouseEnter = (e) => {
+            const movie_id = e._targetInst.key;
+            // setTimeout(() => {
+            //     console.log(movie_id, 'user enter');
+            // }, 1200);
         }
-
+        const MouseLeave = (e) => {
+            const movie_id = e._targetInst.key;
+            // console.log(movie_id, 'user leave');
+        }
         const settings = {
             className: "center",
             centerMode: false,
@@ -43,6 +52,15 @@ class Crime extends Component {
             dots: true,
             responsive: [
                 {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
                     breakpoint: 1200,
                     settings: {
                         slidesToShow: 5,
@@ -53,6 +71,15 @@ class Crime extends Component {
                 },
                 {
                     breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 950,
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 3,
@@ -131,14 +158,21 @@ class Crime extends Component {
                 <div className='top'>
                     <Slider {...settings}>
                         {Object.keys(this.props.movies).map((movie, i) => (
-                            <div key={this.props.movies[movie].id} className="top_small_Picture" >
+                            <div className="top_small_Picture" key={i}>
                                 <Grid item xs={3}>
-                                    <div className="container" key={this.props.movies[movie].id}>
-                                        <Paper onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>
+                                    <div className="container">
+                                        <Paper onMouseEnter={MouseEnter.bind(this.props.movies[movie])} onMouseLeave={MouseLeave.bind(this.props.movies[movie])}>
                                             {this.props.movies[movie].photos.map(photo => (
-                                                <div>
-                                                    <img src={photo.small_Picture} className="small_Picture" key={this.props.movies[movie].id} />
-                                                    <button className="btn" key={this.props.movies[movie].id} onClickCapture={movieClike.bind(this.props.movies[movie])}> ^ </button>
+                                                <div key={i}>
+                                                    <img src={photo.small_Picture} className="small_Picture" key={i} />
+                                                    <div className="btnBackround">
+                                                        <button className="btn" key={this.props.movies[movie].id}
+                                                            onClick={() => {
+                                                                movieClike.bind((e) => this.props.movies[movie])
+                                                                this.setState({ find: this.props.movies[movie] })
+                                                            }}> ^
+                                                    </button>
+                                                    </div>
                                                 </div>
                                             ))}
                                         </Paper>
@@ -148,7 +182,36 @@ class Crime extends Component {
                         ))}
                     </Slider>
                 </div>
-
+                <div onChange={() => this.state.find}>
+                    <div>
+                        {this.state.find.photos != null ?
+                            <div>
+                                <div class="movie_card">
+                                    <div className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
+                                        <div className="info_section">
+                                            <div className="movie_header">
+                                                <img className="locandina" src={this.state.find.photos[0].small_Picture} />
+                                                <h1>{this.state.find.name}</h1>
+                                                <h4>{this.state.find.publishing_Year}</h4>
+                                                <span className="minutes">{this.state.find.minutes} min</span>
+                                                <p className="type">Action, Crime, Fantasy</p>
+                                            </div>
+                                            <div className="movie_desc">
+                                                <p className="text">{this.state.find.text}</p>
+                                            </div>
+                                            <div className="movie_social">
+                                                <ul>
+                                                    <li><i><VisibilityIcon /></i></li>
+                                                    <li><i><FavoriteIcon color="primary" /></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            : null}
+                    </div>
+                </div>
             </div >
         );
     }

@@ -152,7 +152,7 @@ export default function Header() {
                         >
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <SentimentSatisfiedIcon fontSize="sentimentSatisfied" />
+                                    <SentimentSatisfiedIcon style={{ fontSize: "sentimentSatisfied" }} />
                                 </ListItemIcon>
                                 <ListItemText primary={`${'Itzik'}`} />
                             </StyledMenuItem>
