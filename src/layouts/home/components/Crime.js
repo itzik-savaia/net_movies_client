@@ -57,8 +57,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 5,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -66,8 +64,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 5,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -75,8 +71,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 5,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -84,8 +78,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -93,8 +85,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -102,8 +92,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 },
                 {
@@ -111,8 +99,6 @@ class Crime extends Component {
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
                     }
                 }
             ],
