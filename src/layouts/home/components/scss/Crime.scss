@@ -1,3 +1,4 @@
+
 .container .btn {
     position: absolute;
     height: 255px;
@@ -144,6 +145,16 @@
 
 
 //trailer
+.video {
+  transition: 0.5s;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 30rem;
+  border-radius:10px;
+  border: none;
+}
+
 .backgroundIMG {
     border-radius: 10px;
     background-position: top, center !important;
@@ -155,14 +166,16 @@
 .movie_card{
   position: relative;
   display: block;
-    margin: 2rem 3rem 2rem 3rem;
+  margin: 2rem 3rem 2rem 3rem;
   overflow: hidden;
-
+  transition: 0.5s;
+  border-radius: 10px;
   &:hover{
 
   }
   .info_section{
     position: relative;
+    transition: 0.5s;
     width: 100%;
     height: 100%;
 	  background-blend-mode: multiply;
@@ -287,5 +300,8 @@
   .info_section{
     background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
     display: inline-grid;
+  }
+  .video {
+    width: auto !important;
   }
 }

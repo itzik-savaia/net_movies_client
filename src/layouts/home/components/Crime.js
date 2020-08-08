@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import ReactPlayer from "react-player";
+
 
 class Crime extends Component {
     constructor(props) {
@@ -18,28 +20,27 @@ class Crime extends Component {
             movies: [],
             find: {},
             movie_id: String,
+            card_over: false,
         };
     }
 
     render() {
         const movieClike = (e) => {
-            this.state.movie_id = e.id;
+            this.setState({ movie_id: e.id })
             if (this.state.movies.length === 0)
                 this.state.movies.push(Object.values(this.props.movies));
 
             this.state.movies.forEach(element => {
-                this.state.find = element.find(movie => movie.id === e.id)
+                this.setState({ find: element.find(movie => movie.id === e.id) })
             });
         }
         const MouseEnter = (e) => {
-            const movie_id = e._targetInst.key;
-            // setTimeout(() => {
-            //     console.log(movie_id, 'user enter');
-            // }, 1200);
+            setTimeout(() => {
+                this.setState({ card_over: true })
+            }, 3000);
         }
         const MouseLeave = (e) => {
-            const movie_id = e._targetInst.key;
-            // console.log(movie_id, 'user leave');
+            this.setState({ card_over: false })
         }
         const settings = {
             className: "center",
@@ -161,10 +162,10 @@ class Crime extends Component {
                             <div className="top_small_Picture" key={i}>
                                 <Grid item xs={3}>
                                     <div className="container">
-                                        <Paper onMouseEnter={MouseEnter.bind(this.props.movies[movie])} onMouseLeave={MouseLeave.bind(this.props.movies[movie])}>
+                                        <Paper>
                                             {this.props.movies[movie].photos.map(photo => (
                                                 <div key={i}>
-                                                    <img src={photo.small_Picture} className="small_Picture" key={i} />
+                                                    <img src={photo.small_Picture} className="small_Picture" key={i} alt={photo.small_Picture} />
                                                     <div className="btnBackround">
                                                         <button className="btn" key={this.props.movies[movie].id}
                                                             onClick={() => {
@@ -182,31 +183,12 @@ class Crime extends Component {
                         ))}
                     </Slider>
                 </div>
-                <div onChange={() => this.state.find}>
+                <div>
                     <div>
                         {this.state.find.photos != null ?
                             <div>
-                                <div class="movie_card">
-                                    <div className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
-                                        <div className="info_section">
-                                            <div className="movie_header">
-                                                <img className="locandina" src={this.state.find.photos[0].small_Picture} />
-                                                <h1>{this.state.find.name}</h1>
-                                                <h4>{this.state.find.publishing_Year}</h4>
-                                                <span className="minutes">{this.state.find.minutes} min</span>
-                                                <p className="type">Action, Crime, Fantasy</p>
-                                            </div>
-                                            <div className="movie_desc">
-                                                <p className="text">{this.state.find.text}</p>
-                                            </div>
-                                            <div className="movie_social">
-                                                <ul>
-                                                    <li><i><VisibilityIcon /></i></li>
-                                                    <li><i><FavoriteIcon color="primary" /></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div onMouseEnter={() => (MouseEnter(this.state.find.id))} onMouseLeave={() => (MouseLeave(this.state.find.id))} className="movie_card">
+                                    {this.state.card_over === false ? this.card_movie() : this.state.card_over === true ? this.card_video() : null}
                                 </div>
                             </div>
                             : null}
@@ -214,6 +196,43 @@ class Crime extends Component {
                 </div>
             </div >
         );
+    }
+
+    card_movie() {
+        return (
+            <div className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
+                <div className="info_section">
+                    <div className="movie_header">
+                        <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
+                        <h1>{this.state.find.name}</h1>
+                        <h4>{this.state.find.publishing_Year}</h4>
+                        <div>
+                            <span className="minutes">{this.state.find.minutes} min</span>
+                            {this.state.find.types.map((type, i) => (
+                                <p className="type" key={i}>{type}</p>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="movie_desc">
+                        <p className="text">{this.state.find.text}</p>
+                    </div>
+                    <div className="movie_social">
+                        <ul>
+                            <li><i><VisibilityIcon /></i></li>
+                            <li><i><FavoriteIcon color="primary" /></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    card_video() {
+        return (
+            <div className="info_section video">
+                <ReactPlayer url={this.state.find.trailers} playing={true} className="video" />
+            </div>
+        )
     }
 }
 
