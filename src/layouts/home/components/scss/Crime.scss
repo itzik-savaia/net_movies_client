@@ -162,6 +162,10 @@
     background-attachment: fixed !important;
     background-size: cover, contain !important;
 }
+@keyframes mymove {
+  from {margin-top: 0px; opacity: 1;}
+  to {margin-top: 10px; opacity: 0.2;}
+}
 
 .movie_card{
   position: relative;
@@ -174,6 +178,22 @@
 
   }
   .info_section{
+      .cancelBtn {
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        display: flex;
+        right: 50%;
+        border: none;
+        animation: mymove 5s;
+        animation-iteration-count: 1;
+        margin-top: 10px;
+        opacity: 0.2;
+        &:hover {
+          opacity: 1;
+        }
+      
+    }
     position: relative;
     transition: 0.5s;
     width: 100%;
@@ -303,5 +323,22 @@
   }
   .video {
     width: auto !important;
+    &:hover {
+      .cancelBtn {
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        display: flex;
+        right: 50%;
+        border: none;
+        animation: mymove 5s;
+        animation-iteration-count: 1;
+        margin-top: 10px;
+        opacity: 0.2;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
