@@ -14,8 +14,6 @@ import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-
 import grey from '@material-ui/core/colors/grey';
 import './scss/header.scss';
 

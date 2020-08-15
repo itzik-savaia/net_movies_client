@@ -180,7 +180,7 @@ class Crime extends Component {
         return (
             <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
                 <div className="info_section">
-                    <a className="cancelBtn" onClick={() => ($('#card_movie').slideUp())}><CancelIcon fontSize="large" /></a>
+                    <a className="cancelBtn" onClick={() => ($('#card_movie').slideUp())} href="/#"><CancelIcon fontSize="large" /></a>
                     <div className="movie_header">
                         <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
                         <h1>{this.state.find.name}</h1>
@@ -213,13 +213,13 @@ class Crime extends Component {
         return (
             <div id="card_video" className="info_section video">
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))}><CancelIcon fontSize="large" /></a>
-                    <a className="returnBtn" onClick={() => (this.setState({ card_start: false }), this.card_movie())}><ArrowBackIcon fontSize="large" /></a>
+                    <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))} href="/#"><CancelIcon fontSize="large" /></a>
+                    <a className="returnBtn" onClick={() => (this.setState({ card_start: false }))} href="/#"><ArrowBackIcon fontSize="large" /></a>
                 </div>
                 <ReactPlayer url={this.state.find.trailers}
                     playing={true}
                     className="video"
-                    onEnded={() => (this.setState({ card_start: false }), this.card_movie())}
+                    onEnded={() => (this.setState({ card_start: false }))}
                 />
             </div>
         )
