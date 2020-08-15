@@ -26,12 +26,15 @@ class Crime extends Component {
             movie_id: String,
             card_start: false,
         };
-        this.cancelBtn = this.cancelBtn.bind(this)
+        // this.cancelBtn = this.cancelBtn.bind(this)
+        // this.openBtn = this.openBtn.bind(this)
     }
-    cancelBtn() {
-        $('#card_movie').slideUp();
-        //  this.setState({ find: {}, card_start: false })
-    }
+    // cancelBtn(e) {
+    //     $('#card_movie').slideUp();
+    // }
+    // openBtn() {
+    //     $('#card_movie').slideDown();
+    // }
 
     render() {
 
@@ -150,7 +153,7 @@ class Crime extends Component {
                             <div className="top_small_Picture" key={i}>
                                 <Grid item xs={3}>
                                     <div className="container">
-                                        <Paper onClick={() => (this.setState({ card_start: false }))}>
+                                        <Paper onClick={() => ($('#card_movie').slideDown())}>
                                             {this.props.movies[movie].photos.map(photo => (
                                                 <div key={i}>
                                                     <img src={photo.small_Picture} className="small_Picture" key={i} alt={photo.small_Picture} />
@@ -186,13 +189,15 @@ class Crime extends Component {
         return (
             <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
                 <div className="info_section">
-                    <a id="cancelBtn" className="cancelBtn" onClick={() => (this.cancelBtn())}><CancelIcon fontSize="large" /></a>
+                    <a className="cancelBtn" onClick={() => ($('#card_movie').slideUp())}><CancelIcon fontSize="large" /></a>
                     <div className="movie_header">
                         <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
                         <h1>{this.state.find.name}</h1>
                         <h4>{this.state.find.publishing_Year}</h4>
                         <div>
-                            <button onClick={() => (this.setState({ card_start: true }))} className="WhatchTrailerBtn">Trailer</button>
+                            <button onClick={() => (
+                                this.setState({ card_start: true })
+                            )} className="WhatchTrailerBtn">Trailer</button>
                             <span className="minutes">{this.state.find.minutes} min</span>
                             {this.state.find.types.map((type, i) => (
                                 <p className="type" key={i}>{type}</p>
@@ -215,16 +220,15 @@ class Crime extends Component {
 
     card_video() {
         return (
-            <div className="info_section video">
+            <div id="card_video" className="info_section video">
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    <a id="cancelBtn" className="cancelBtn" onClick={() => (this.cancelBtn())}><CancelIcon fontSize="large" /></a>
+                    <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))}><CancelIcon fontSize="large" /></a>
                     <a className="returnBtn" onClick={() => (this.setState({ card_start: false }), this.card_movie())}><ArrowBackIcon fontSize="large" /></a>
                 </div>
                 <ReactPlayer url={this.state.find.trailers}
                     playing={true}
                     className="video"
                     onEnded={() => (this.setState({ card_start: false }), this.card_movie())}
-                // controls
                 />
             </div>
         )
