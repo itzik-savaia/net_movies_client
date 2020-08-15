@@ -4,7 +4,7 @@ import { Fetch_All_Movies } from '../../app/dispatch';
 import './scss/view.scss';
 
 // Components
-import Crime from './components/Crime';
+import Crime from './components/crime';
 
 
 // Material-UI

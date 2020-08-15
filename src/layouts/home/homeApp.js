@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Header from './header';
 // import Footer from './footer';
 import View from './view';
 import './scss/header.scss'
+import AlertDialog from './components/dialog'
 
-export default class HomeApp extends Component {
+class HomeApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            movies: []
+        }
+    }
     render() {
         return (
             <div>
-                <header>
-                    <Header />
-                </header>
-                <View />
-                <footer>
-                    {/* <Footer /> */}
-                </footer>
+                {this.state.movies.status !== 404 ?
+                    <div>
+                        <header>
+                            <Header />
+                        </header>
+                        <View />
+                        <footer>
+                            {/* <Footer /> */}
+                        </footer>
+                    </div>
+                    : <AlertDialog />}
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        movies: state.movies
+    }
+}
+
+export default connect(mapStateToProps)(HomeApp);
