@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Slider from "react-slick";
 import { connect } from 'react-redux';
 import './scss/Crime.scss';
-import './jquery/jquery';
 import ReactPlayer from "react-player";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -26,15 +25,7 @@ class Crime extends Component {
             movie_id: String,
             card_start: false,
         };
-        // this.cancelBtn = this.cancelBtn.bind(this)
-        // this.openBtn = this.openBtn.bind(this)
     }
-    // cancelBtn(e) {
-    //     $('#card_movie').slideUp();
-    // }
-    // openBtn() {
-    //     $('#card_movie').slideDown();
-    // }
 
     render() {
 
