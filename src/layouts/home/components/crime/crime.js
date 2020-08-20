@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react';
 import Slider from "react-slick";
 import { connect } from 'react-redux';
-import './scss/Crime.scss';
+import '../scss/Crime.scss';
 import ReactPlayer from "react-player";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -10,7 +9,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import $ from 'jquery';
+import $, { type } from 'jquery';
 
 
 
@@ -21,13 +20,26 @@ class Crime extends Component {
             display: true,
             width: 600,
             movies: [],
+            types: [],
             find: {},
             movie_id: String,
             card_start: false,
         };
     }
 
+
     render() {
+        const organized = () => {
+            if (this.props.movies != null) {
+                this.state.movies.forEach(e => {
+                    e.types.forEach(element => {
+                        if (element === "Action") {
+                            this.state.types.push(e);
+                        }
+                    });
+                });
+            }
+        }
 
         const movieClike = (e) => {
             this.setState({ movie_id: e.id })
@@ -133,6 +145,11 @@ class Crime extends Component {
         };
         return (
             <div>
+                {/* {Object.keys(this.props.movies).map((movie, i) => (
+                    movie.types.map((type, i) => (
+                        <p className="type" key={i}>{type}</p>
+                        ))
+                        ))} */}
                 <div className="row-header">
                     <div className="rowTitle">
                         <div className="row-header-title">Crime</div>
@@ -228,7 +245,7 @@ class Crime extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies
+        movies: state.movies,
     }
 }
 

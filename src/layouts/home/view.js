@@ -4,7 +4,8 @@ import { Fetch_All_Movies } from '../../app/dispatch';
 import './scss/view.scss';
 
 // Components
-import Crime from './components/crime';
+import Crime from './components/crime/crime';
+
 
 
 // Material-UI
@@ -37,8 +38,6 @@ const View = props => {
             <Grid container>
                 <Grid item xs>
                     <Crime />
-                </Grid>
-                <Grid item>
                 </Grid>
             </Grid>
         </div >
