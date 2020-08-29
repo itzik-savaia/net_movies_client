@@ -9,7 +9,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import $, { type } from 'jquery';
+import $ from 'jquery';
 
 
 
@@ -19,37 +19,16 @@ class Crime extends Component {
         this.state = {
             display: true,
             width: 600,
-            movies: [],
-            types: [],
             find: {},
-            movie_id: String,
+            find_category: {},
             card_start: false,
+            movies: this.props.Movies,
+            categorys: this.props.Categorys,
         };
     }
 
 
     render() {
-        const organized = () => {
-            if (this.props.movies != null) {
-                this.state.movies.forEach(e => {
-                    e.types.forEach(element => {
-                        if (element === "Action") {
-                            this.state.types.push(e);
-                        }
-                    });
-                });
-            }
-        }
-
-        const movieClike = (e) => {
-            this.setState({ movie_id: e.id })
-            if (this.state.movies.length === 0)
-                this.state.movies.push(Object.values(this.props.movies));
-
-            this.state.movies.forEach(element => {
-                this.setState({ find: element.find(movie => movie.id === e.id) })
-            });
-        }
         const settings = {
             className: "center",
             centerMode: false,
@@ -111,117 +90,193 @@ class Crime extends Component {
                 }
             ],
             appendDots: dots => (
-                <div
-                    style={{
-                        borderRadius: "100px",
-                        padding: "10px",
-                        textAlign: "end",
-                        color: "#e5e5e5",
-                        height: "30px",
-                    }}
-                >
-                    <ul style={{ margin: "0px" }}> {dots} </ul>
+                <div style={{ padding: "10px", textAlign: "end", color: "#e5e5e5", border: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)" }}>
+                    <ul style={{ margin: "0px" }}>{dots}</ul>
                 </div>
             ),
             customPaging: i => (
-                <div
-                    style={{
-                        marginTop: "270px",
-                        width: "30px",
-                        color: "#e5e5e5",
-                        border: "0.5px #e5e5e5 solid",
-                        borderRadius: "8px",
-                        textAlign: "center",
-                        backgroundColor: "rgba(20, 20, 20, 0.5)",
-                        lineHeight: "1.25vw",
-                        fontSize: "1.4vw",
-                        verticalAlign: "bottom",
-                        display: "table-cell",
-                    }}
-                >
-                    {i + 1}
+                <div style={{
+                    marginTop: "270px",
+                    width: "30px",
+                    color: "#e5e5e5",
+                    border: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+                    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+                    borderRadius: "3px",
+                    textAlign: "center",
+                    backgroundColor: "rgba(20, 20, 20, 0.5)",
+                    lineHeight: "1.25vw",
+                    fontSize: "1.4vw",
+                    verticalAlign: "bottom",
+                    display: "table-cell",
+                }}>{i + 1}
                 </div>
             ),
         };
         return (
             <div>
-                {/* {Object.keys(this.props.movies).map((movie, i) => (
-                    movie.types.map((type, i) => (
-                        <p className="type" key={i}>{type}</p>
-                        ))
-                        ))} */}
-                <div className="row-header">
-                    <div className="rowTitle">
-                        <div className="row-header-title">Crime</div>
-                    </div>
-                </div>
-                <div className='top'>
-                    <Slider {...settings}>
-                        {Object.keys(this.props.movies).map((movie, i) => (
-                            <div className="top_small_Picture" key={i}>
-                                <Grid item xs={3}>
-                                    <div className="container">
-                                        <Paper onClick={() => ($('#card_movie').slideDown())}>
-                                            {this.props.movies[movie].photos.map(photo => (
-                                                <div key={i}>
-                                                    <img src={photo.small_Picture} className="small_Picture" key={i} alt={photo.small_Picture} />
-                                                    <div className="btnBackround">
-                                                        <button className="btn" key={this.props.movies[movie].id}
-                                                            onClick={() => {
-                                                                movieClike.bind((e) => this.props.movies[movie])
-                                                                this.setState({ find: this.props.movies[movie] })
-                                                            }}> ^
-                                                    </button>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </Paper>
-                                    </div>
-                                </Grid>
+                {Object.values(this.state.categorys.Movies_Categorys_Reducer).map(categorys => (
+                    categorys.crime.lenght !== 0 ?
+                        <>
+                            <div className="row-header">
+                                <div className="rowTitle">
+                                    <div className="row-header-title">{Object.keys(categorys).find(c => c === "crime")}</div>
+                                </div>
                             </div>
-                        ))}
-                    </Slider>
-                </div>
-                <div>
-                    {this.state.find.photos != null ?
-                        <div className="movie_card" key={this.state.find.id}>
-                            {this.state.card_start === false ? this.card_movie() : this.state.card_start === true ? this.card_video() : null}
-                        </div>
-                        : null}
-                </div>
-            </div >
+                            <div className='top'>
+                                <Slider {...settings}>
+                                    {categorys.crime.map(movie => (movie.photos.map(photo => (
+                                        <div className="top_small_Picture" key={categorys.crime.lenght}>
+                                            <Grid item xs={3}>
+                                                <div className="container">
+                                                    <Paper onClick={() => ($(`#card_movie`).slideDown())}>
+                                                        <div key={photo}>
+                                                            <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
+                                                            <div className="btnBackround">
+                                                                <button className="btn"
+                                                                    onClick={() => {
+                                                                        this.setState({
+                                                                            find: movie,
+                                                                            find_category: categorys.crime
+                                                                        })
+                                                                    }}> ^
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </Paper>
+                                                </div>
+                                            </Grid>
+                                        </div>
+                                    ))))}
+                                </Slider>
+                                {this.call_cart_movie(categorys.crime)}
+                            </div>
+
+                            {/* Action */}
+                            <div className="row-header">
+                                <div className="rowTitle">
+                                    <div className="row-header-title">{Object.keys(categorys).find(c => c === "action")}</div>
+                                </div>
+                            </div>
+                            <div className='top'>
+                                <Slider {...settings}>
+                                    {categorys.action.map(movie => (movie.photos.map(photo => (
+                                        <div className="top_small_Picture" key={categorys.action.lenght}>
+                                            <Grid item xs={3}>
+                                                <div className="container">
+                                                    <Paper onClick={() => ($(`#card_movie`).slideDown())}>
+                                                        <div key={photo}>
+                                                            <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
+                                                            <div className="btnBackround">
+                                                                <button className="btn"
+                                                                    onClick={() => {
+                                                                        this.setState({
+                                                                            find: movie,
+                                                                            find_category: categorys.action
+                                                                        })
+                                                                    }}> ^
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </Paper>
+                                                </div>
+                                            </Grid>
+                                        </div>
+                                    ))))}
+                                </Slider>
+                                {this.call_cart_movie(categorys.action)}
+                            </div>
+
+
+                            <div className="row-header">
+                                <div className="rowTitle">
+                                    <div className="row-header-title">{Object.keys(categorys).find(c => c === "adventure")}</div>
+                                </div>
+                            </div>
+                            <div className='top'>
+                                <Slider {...settings}>
+                                    {categorys.adventure.map(movie => (movie.photos.map(photo => (
+                                        <div className="top_small_Picture" key={categorys.adventure.lenght}>
+                                            <Grid item xs={3}>
+                                                <div className="container">
+                                                    <Paper onClick={() => ($(`#card_movie`).slideDown())}>
+                                                        <div key={photo}>
+                                                            <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
+                                                            <div className="btnBackround">
+                                                                <button className="btn"
+                                                                    onClick={() => {
+                                                                        this.setState({
+                                                                            find: movie,
+                                                                            find_category: categorys.adventure
+                                                                        })
+                                                                    }}> ^
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </Paper>
+                                                </div>
+                                            </Grid>
+                                        </div>
+                                    ))))}
+                                </Slider>
+                                {this.call_cart_movie(categorys.adventure)}
+                            </div>
+                        </>
+                        : null
+                ))}
+            </div>
         );
     }
-
-    card_movie() {
+    call_cart_movie(category) {
+        console.log(category.find(c => c.id === this.state.find.id));
         return (
-            <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
-                <div className="info_section">
-                    <a className="cancelBtn" onClick={() => ($('#card_movie').slideUp())} href="/#"><CancelIcon fontSize="large" /></a>
-                    <div className="movie_header">
-                        <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
-                        <h1>{this.state.find.name}</h1>
-                        <h4>{this.state.find.publishing_Year}</h4>
-                        <div>
-                            <button onClick={() => (
-                                this.setState({ card_start: true })
-                            )} className="WhatchTrailerBtn">Trailer</button>
-                            <span className="minutes">{this.state.find.minutes} min</span>
-                            {this.state.find.types.map((type, i) => (
-                                <p className="type" key={i}>{type}</p>
-                            ))}
+            <div>
+                {this.state.find.photos != null ?
+                    <div className="movie_card" key={this.state.find.id}>
+                        {this.state.card_start === false ? this.card_movie(category) : this.state.card_start === true ? this.card_video(category) : null}
+                    </div>
+                    : null}
+            </div>
+        )
+    }
+
+    card_movie(category) {
+        return (
+            <div>
+                {category.find(c => c.id === this.state.find.id) ?
+                    <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
+                        <div className="info_section">
+                            <a className="cancelBtn" onClick={() => (
+                                setTimeout(() => {
+                                    this.setState({ find: {}, card_start: false })
+                                }, 500) + $('#card_movie').slideUp())} href="/#">
+                                <CancelIcon fontSize="large" />
+                            </a>
+                            <div className="movie_header">
+                                <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
+                                <h1>{category.find(c => c.name === this.state.find.name) ? this.state.find.name : null}</h1>
+                                <h4>{this.state.find.publishing_Year}</h4>
+                                <div>
+                                    <button onClick={() => (
+                                        this.setState({ card_start: true })
+                                    )} className="WhatchTrailerBtn">Trailer</button>
+                                    <span className="minutes">{this.state.find.minutes} min</span>
+                                    {this.state.find.types.map((type, i) => (
+                                        <p className="type" key={i}>{type}</p>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="movie_desc">
+                                <p className="text">{this.state.find.text}</p>
+                            </div>
+                            <div className="movie_social">
+                                <ul>
+                                    <li><i><VisibilityIcon /></i></li>
+                                    <li><i><FavoriteIcon color="primary" /></i></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div className="movie_desc">
-                        <p className="text">{this.state.find.text}</p>
-                    </div>
-                    <div className="movie_social">
-                        <ul>
-                            <li><i><VisibilityIcon /></i></li>
-                            <li><i><FavoriteIcon color="primary" /></i></li>
-                        </ul>
-                    </div>
-                </div>
+                    : null}
             </div>
         )
     }
@@ -242,11 +297,10 @@ class Crime extends Component {
         )
     }
 }
-
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
     return {
-        movies: state.movies,
+        Movies: state.MoviesReducer,
+        Categorys: state.CategorysReducer,
     }
 }
-
 export default connect(mapStateToProps)(Crime);

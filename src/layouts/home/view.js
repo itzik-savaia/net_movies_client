@@ -1,40 +1,32 @@
-import React, { useEffect, } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Fetch_All_Movies } from '../../app/dispatch';
+import { Fetch_All_Movies_In_Categorys, Fetch_All_Movies } from '../../app/dispatch';
 import './scss/view.scss';
 
 // Components
 import Crime from './components/crime/crime';
 
-
-
 // Material-UI
-// import { makeStyles } from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 
-
-
-// const useStyles = makeStyles({
-
-// });
-
 const View = props => {
-    // const classes = useStyles();
     const dispatch = useDispatch();
-    const movies_store = useSelector(state => state.movies);
-    // const [data, setData] = useState({ movies: [] });
+    const Movies = useSelector((state) => state.MoviesReducer);
+    const Categorys = useSelector((state) => state.CategorysReducer);
 
-    const movieList = Object.keys(movies_store).map(key =>
-        <option>{movies_store[key]}</option>
-    )
+    const [data, setData] = useState({
+        movies: Movies,
+        categorys: Categorys,
+    });
 
     useEffect(() => {
-        dispatch(Fetch_All_Movies());
-    }, []);
+        dispatch(Fetch_All_Movies())
+        dispatch(Fetch_All_Movies_In_Categorys())
+    }, [dispatch]);
+
 
     return (
         <div>
-
             <Grid container>
                 <Grid item xs>
                     <Crime />
