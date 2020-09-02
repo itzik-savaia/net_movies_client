@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import HomeApp from './layouts/home/HomeApp';
+import HomeApp from '../src/layouts/home/HomeApp';
 import LoginApp from './layouts/login/LoginApp';
 import SingupApp from './layouts/singup/SingupApp';
 import ForgotApp from './layouts/forgot_password/Forgot_Pass.App';
