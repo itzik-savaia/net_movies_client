@@ -4,7 +4,7 @@ import Header from './header';
 // import Footer from './footer';
 import View from './view';
 import './scss/header.scss'
-import AlertDialog from './components/dialog/dialog'
+// import AlertDialog from './components/dialog/dialog';
 
 class HomeApp extends Component {
     constructor(props) {
@@ -16,17 +16,17 @@ class HomeApp extends Component {
     render() {
         return (
             <div>
-                {this.state.movies.status !== 404 ?
-                    <div>
-                        <header>
-                            <Header />
-                        </header>
-                        <View />
-                        <footer>
-                            {/* <Footer /> */}
-                        </footer>
-                    </div>
-                    : <AlertDialog />}
+                {/* {this.state.movies.status !== 404 ? */}
+                <div>
+                    <header>
+                        <Header />
+                    </header>
+                    <View />
+                    <footer>
+                        {/* <Footer /> */}
+                    </footer>
+                </div>
+                {/* : <AlertDialog />} */}
             </div>
         )
     }
