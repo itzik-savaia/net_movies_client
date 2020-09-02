@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.scss';
-import HomeApp from './layouts/home/homeApp';
-import LoginApp from './layouts/login/loginApp';
-import SingupApp from './layouts/singup/singupApp';
-import ForgotApp from './layouts/forgot_password/forgot_pass.App';
-import AlertDialog from './layouts/home/components/dialog'
+import HomeApp from './layouts/home/HomeApp';
+import LoginApp from './layouts/login/LoginApp';
+import SingupApp from './layouts/singup/SingupApp';
+import ForgotApp from './layouts/forgot_password/Forgot_Pass.App';
+import AlertDialog from './layouts/home/components/dialog/Dialog';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
