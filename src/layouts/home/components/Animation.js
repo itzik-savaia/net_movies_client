@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Slider from "react-slick";
 import { connect } from 'react-redux';
-import './scss/categorys.scss';
+// import './scss/categorys.scss';
 import ReactPlayer from "react-player";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';

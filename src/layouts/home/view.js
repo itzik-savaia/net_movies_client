@@ -6,16 +6,16 @@ import './scss/view.scss';
 // Components
 import Terror from './components/terror';
 import Family from './components/family';
-import Science_Fintion_And_Fantasy from './components/science_fintion_and_fantasy';
+import ScienceFintionAndFantasy from './components/science_fintion_and_fantasy';
 import Crime from './components/crime';
 import Comedie from './components/comedie';
 import Romanticism from './components/romanticism';
 import Sport from './components/sport';
 import Action from './components/action';
-import Stand_Up_Show from './components/stand_up_show';
+import StandUpShow from './components/stand_up_show';
 import Thriller from './components/thriller';
 import Fantasy from './components/fantasy';
-import Sci_Fi from './components/sci_fi';
+import SciFi from './components/sci_fi';
 import Drama from './components/drama';
 import Mystery from './components/mystery';
 import Music from './components/music';
@@ -52,7 +52,7 @@ const View = props => {
                     <Family />
                 </Grid>
                 <Grid item xs={12}>
-                    <Science_Fintion_And_Fantasy />
+                    <ScienceFintionAndFantasy />
                 </Grid>
                 <Grid item xs={12}>
                     <Crime />
@@ -70,7 +70,7 @@ const View = props => {
                     <Action />
                 </Grid>
                 <Grid item xs={12}>
-                    <Stand_Up_Show />
+                    <StandUpShow />
                 </Grid>
                 <Grid item xs={12}>
                     <Thriller />
@@ -79,7 +79,7 @@ const View = props => {
                     <Fantasy />
                 </Grid>
                 <Grid item xs={12}>
-                    <Sci_Fi />
+                    <SciFi />
                 </Grid>
                 <Grid item xs={12}>
                     <Drama />
