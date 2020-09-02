@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './Header';
+import Header from './header';
 // import Footer from './footer';
-import View from './View';
+import View from './view';
 import './scss/header.scss'
-import AlertDialog from './components/dialog/Dialog'
+import AlertDialog from './components/dialog/dialog'
 
 class HomeApp extends Component {
     constructor(props) {

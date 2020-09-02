@@ -4,23 +4,23 @@ import { Fetch_All_Movies_In_Categorys, Fetch_All_Movies } from '../../app/dispa
 import './scss/view.scss';
 
 // Components
-import Terror from './components/Terror';
-import Family from './components/Family';
-import Science_Fintion_And_Fantasy from './components/Science_Fintion_And_Fantasy';
-import Crime from './components/Crime';
-import Comedie from './components/Comedie';
-import Romanticism from './components/Romanticism';
-import Sport from './components/Sport';
-import Action from './components/Action';
-import Stand_Up_Show from './components/Stand_Up_Show';
-import Thriller from './components/Thriller';
-import Fantasy from './components/Fantasy';
-import Sci_Fi from './components/Sci_Fi';
-import Drama from './components/Drama';
-import Mystery from './components/Mystery';
-import Music from './components/Music';
-import Adventure from './components/Adventure';
-import Animation from './components/Animation';
+import Terror from './components/terror';
+import Family from './components/family';
+import Science_Fintion_And_Fantasy from './components/science_fintion_and_fantasy';
+import Crime from './components/crime';
+import Comedie from './components/comedie';
+import Romanticism from './components/romanticism';
+import Sport from './components/sport';
+import Action from './components/action';
+import Stand_Up_Show from './components/stand_up_show';
+import Thriller from './components/thriller';
+import Fantasy from './components/fantasy';
+import Sci_Fi from './components/sci_fi';
+import Drama from './components/drama';
+import Mystery from './components/mystery';
+import Music from './components/music';
+import Adventure from './components/adventure';
+import Animation from './components/animation';
 
 
 // Material-UI
