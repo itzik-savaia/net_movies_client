@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import HomeApp from '../home/HomeApp';
+import HomeApp from '../home/homeApp';
 import LoginApp from '../login/LoginApp';
 import './singupApp.scss'
 import { Switch, Route, Link, useLocation } from "react-router-dom";

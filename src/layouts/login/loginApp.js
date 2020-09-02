@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import './loginApp.scss';
-import HomeApp from '../home/HomeApp';
+import HomeApp from '../home/homeApp';
 import SingupApp from '../singup/SingupApp';
 import ForgotApp from '../forgot_password/Forgot_Pass.App';
 import { Switch, Route, Link, useLocation } from "react-router-dom";
