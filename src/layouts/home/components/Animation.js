@@ -152,7 +152,7 @@ class Animation extends Component {
                                             ))))
                                             }
                                         </Slider>
-                                        {this.call_cart_movie(categorys.animation)}
+                                        {this.call_cart_movie()}
                                     </div>
                                 </Fragment>
                                 : null}

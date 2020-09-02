@@ -20,7 +20,7 @@ import Drama from './components/drama';
 import Mystery from './components/mystery';
 import Music from './components/music';
 import Adventure from './components/adventure';
-// import Animation from './components/animation';
+import Animation from './components/animation';
 
 
 // Material-UI
@@ -93,9 +93,9 @@ const View = props => {
                 <Grid item xs={12}>
                     <Adventure />
                 </Grid>
-                {/* <Grid item xs={12}>
+                <Grid item xs={12}>
                     <Animation />
-                </Grid> */}
+                </Grid>
             </Grid>
         </div >
     );
