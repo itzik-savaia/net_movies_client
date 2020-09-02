@@ -26,6 +26,7 @@ import Animation from './components/Animation';
 // Material-UI
 import Grid from "@material-ui/core/Grid";
 
+
 const View = props => {
     const dispatch = useDispatch();
     // const Movies = useSelector((state) => state.MoviesReducer);
@@ -40,7 +41,6 @@ const View = props => {
         dispatch(Fetch_All_Movies())
         dispatch(Fetch_All_Movies_In_Categorys())
     }, [dispatch]);
-
 
     return (
         <div>
