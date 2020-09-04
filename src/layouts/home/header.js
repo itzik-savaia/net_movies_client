@@ -40,11 +40,11 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
     root: {
         '&:focus': {
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            background: 'linear-gradient(45deg, #b71c1c 30%,  #212121 70%)',
             borderRadius: 3,
             border: 0,
             color: 'white',
-            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+            boxShadow: '& .MuiList-root .MuiMenu-list .MuiList-padding 0 3px 20px rgb(202 45 45 / 30%), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgb(255 0 0 / 10%)',
             textTransform: 'capitalize',
             '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
                 color: theme.palette.common.white,
@@ -98,11 +98,11 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         margin: theme.spacing(1),
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        background: 'linear-gradient(45deg, #b71c1c 30%,  #212121 90%)',
         borderRadius: 3,
         border: 0,
         color: 'white',
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        boxShadow: '0 3px 5px 2px rgb(125 0 0 / 30%)',
         textTransform: 'capitalize',
     },
 }));
@@ -150,19 +150,19 @@ export default function Header() {
                         >
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <SentimentSatisfiedIcon style={{ fontSize: "sentimentSatisfied" }} />
+                                    <SentimentSatisfiedIcon style={{ color: "white" }} />
                                 </ListItemIcon>
-                                <ListItemText primary={`${'Itzik'}`} />
+                                <ListItemText primary={`${'Itzik'}`} style={{}} />
                             </StyledMenuItem>
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <DraftsIcon fontSize="small" />
+                                    <DraftsIcon fontSize="small" style={{ color: "white" }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Drafts" />
                             </StyledMenuItem>
                             <StyledMenuItem>
                                 <ListItemIcon>
-                                    <ExitToAppIcon fontSize="small" />
+                                    <ExitToAppIcon fontSize="small" style={{ color: "white" }} />
                                 </ListItemIcon>
                                 <ListItemText primary="Logout" />
                             </StyledMenuItem>
