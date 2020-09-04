@@ -44,7 +44,7 @@ const StyledMenuItem = withStyles((theme) => ({
             borderRadius: 3,
             border: 0,
             color: 'white',
-            boxShadow: '& .MuiList-root .MuiMenu-list .MuiList-padding 0 3px 20px rgb(202 45 45 / 30%), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgb(255 0 0 / 10%)',
+            // boxShadow: '& .MuiList-root .MuiMenu-list .MuiList-padding 0 3px 20px rgb(202 45 45 / 30%), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgb(255 0 0 / 10%)',
             textTransform: 'capitalize',
             '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
                 color: theme.palette.common.white,
