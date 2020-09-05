@@ -20,8 +20,8 @@ class Crime extends Component {
         this.state = {
             display: true,
             width: 600,
-            find: {},
-            card_start: false,
+            // find: {},
+            // card_start: false,
             movies: this.props.Movies,
             categorys: this.props.Categorys,
         };

@@ -19,11 +19,11 @@ class Action extends Component {
         this.state = {
             display: true,
             width: 600,
-            find: state.find,
-            card_start: state.card_start,
+            // find: state.find,
+            // card_start: state.card_start,
             movies: this.props.Movies,
             categorys: this.props.Categorys,
-            settings: this.props.settings
+            // settings: this.props.settings
         };
     }
 
