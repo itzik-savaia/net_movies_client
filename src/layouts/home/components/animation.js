@@ -22,7 +22,6 @@ class Animation extends Component {
             display: true,
             width: 600,
             find: {},
-            find_category: [],
             card_start: false,
             movies: this.props.Movies,
             categorys: this.props.Categorys,
@@ -54,13 +53,8 @@ class Animation extends Component {
                                                                     <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
                                                                     <div className="btnBackround">
                                                                         <button className="btn"
-                                                                            onClick={() => {
-                                                                                this.setState({
-                                                                                    find: movie,
-                                                                                    find_category: categorys.animation
-                                                                                })
-                                                                            }}> ^
-                                                                </button>
+                                                                            onClick={() => { this.setState({ find: movie }) }}> ^
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </Paper>

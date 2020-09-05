@@ -2,13 +2,13 @@ import React, { Component, Fragment } from 'react';
 import Slider from "react-slick";
 import { connect } from 'react-redux';
 import './scss/categorys.scss';
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-// import VisibilityIcon from '@material-ui/icons/Visibility';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-// import CancelIcon from '@material-ui/icons/Cancel';
-// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import CancelIcon from '@material-ui/icons/Cancel';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import $ from 'jquery';
 import { settings, call_cart_movie, state } from '../setting';
 
@@ -20,8 +20,8 @@ class Crime extends Component {
         this.state = {
             display: true,
             width: 600,
-            // find: {},
-            // card_start: false,
+            find: {},
+            card_start: false,
             movies: this.props.Movies,
             categorys: this.props.Categorys,
         };
@@ -52,8 +52,8 @@ class Crime extends Component {
                                                             <div key={photo}>
                                                                 <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
                                                                 <div className="btnBackround">
-                                                                    <button className="btn" key={Object.keys(categorys).find(c => c === "crime")}
-                                                                        onClick={() => { this.setState(state.find = movie) }}>^
+                                                                    <button className="btn"
+                                                                        onClick={() => { this.setState({ find: movie }) }}> ^
                                                                     </button>
                                                                 </div>
                                                             </div>
