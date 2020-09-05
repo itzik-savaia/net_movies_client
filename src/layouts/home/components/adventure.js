@@ -62,7 +62,7 @@ class Adventure extends Component {
                                                 </div>
                                             ))))}
                                         </Slider>
-                                        {this.call_cart_movie(categorys.adventure)}
+                                        {this.call_cart_movie()}
                                     </div>
                                 </Fragment>
                                 : null}

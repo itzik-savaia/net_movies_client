@@ -64,7 +64,7 @@ class Crime extends Component {
                                         ))))
                                         }
                                     </Slider>
-                                    {call_cart_movie()}
+                                    {this.call_cart_movie()}
                                 </div>
                             </Fragment>
                             : null}
@@ -74,76 +74,75 @@ class Crime extends Component {
         );
     }
 
-    // call_cart_movie() {
-    //     return (
-    //         <div>
-    //             {this.state.find.photos != null ?
-    //                 <div className="movie_card" key={this.state.find.id}>
-    //                     {this.state.card_start === false ? this.card_movie() : this.state.card_start === true ? this.card_video() : null}
-    //                 </div>
-    //                 : null}
-    //         </div>
-    //     )
-    // }
+    call_cart_movie() {
+        return (
+            <div>
+                {this.state.find.photos != null ?
+                    <div className="movie_card" key={this.state.find.id}>
+                        {this.state.card_start === false ? this.card_movie() : this.state.card_start === true ? this.card_video() : null}
+                    </div>
+                    : null}
+            </div>
+        )
+    }
 
-    // card_movie() {
-    //     console.log(this.state);
-    //     return (
-    //         <div>
-    //             <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
-    //                 <div className="info_section">
-    //                     <a className="cancelBtn" onClick={() => (
-    //                         setTimeout(() => {
-    //                             this.setState({ find: {}, card_start: false })
-    //                         }, 500) + $('#card_movie').slideUp())} href="/#">
-    //                         <CancelIcon fontSize="large" />
-    //                     </a>
-    //                     <div className="movie_header">
-    //                         <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
-    //                         <h1>{this.state.find.name}</h1>
-    //                         <h4>{this.state.find.publishing_Year}</h4>
-    //                         <div>
-    //                             <button onClick={() => (
-    //                                 this.setState({ card_start: true })
-    //                             )} className="WhatchTrailerBtn">Trailer</button>
-    //                             <span className="minutes">{this.state.find.minutes} min</span>
-    //                             {this.state.find.types.map((type, i) => (
-    //                                 <p className="type" key={i}>{type}</p>
-    //                             ))}
-    //                         </div>
-    //                     </div>
-    //                     <div className="movie_desc">
-    //                         <p className="text">{this.state.find.text}</p>
-    //                     </div>
-    //                     <div className="movie_social">
-    //                         <ul>
-    //                             <li><i><VisibilityIcon /></i></li>
-    //                             <li><i><FavoriteIcon color="primary" /></i></li>
-    //                         </ul>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    card_movie() {
+        return (
+            <div>
+                <div id="card_movie" className={"backgroundIMG"} style={{ background: `url(${this.state.find.photos[0].background})` }}>
+                    <div className="info_section">
+                        <a className="cancelBtn" onClick={() => (
+                            setTimeout(() => {
+                                this.setState({ find: {}, card_start: false })
+                            }, 500) + $('#card_movie').slideUp())} href="/#">
+                            <CancelIcon fontSize="large" />
+                        </a>
+                        <div className="movie_header">
+                            <img className="locandina" src={this.state.find.photos[0].small_Picture} alt={this.state.find.photos[0].small_Picture} />
+                            <h1>{this.state.find.name}</h1>
+                            <h4>{this.state.find.publishing_Year}</h4>
+                            <div>
+                                <button onClick={() => (
+                                    this.setState({ card_start: true })
+                                )} className="WhatchTrailerBtn">Trailer</button>
+                                <span className="minutes">{this.state.find.minutes} min</span>
+                                {this.state.find.types.map((type, i) => (
+                                    <p className="type" key={i}>{type}</p>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="movie_desc">
+                            <p className="text">{this.state.find.text}</p>
+                        </div>
+                        <div className="movie_social">
+                            <ul>
+                                <li><i><VisibilityIcon /></i></li>
+                                <li><i><FavoriteIcon color="primary" /></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
-    // card_video(category) {
-    //     return (
-    //         <div id="card_video" className="info_section video">
-    //             <>
-    //                 <div style={{ display: "flex", justifyContent: "space-around" }}>
-    //                     <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))} href="/#"><CancelIcon fontSize="large" /></a>
-    //                     <a className="returnBtn" onClick={() => (this.setState({ card_start: false }))} href="/#"><ArrowBackIcon fontSize="large" /></a>
-    //                 </div>
-    //                 <ReactPlayer url={this.state.find.trailers}
-    //                     playing={true}
-    //                     className="video"
-    //                     onEnded={() => (this.setState({ card_start: false }))}
-    //                 />
-    //             </>
-    //         </div>
-    //     )
-    // }
+    card_video() {
+        return (
+            <div id="card_video" className="info_section video">
+                <>
+                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                        <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))} href="/#"><CancelIcon fontSize="large" /></a>
+                        <a className="returnBtn" onClick={() => (this.setState({ card_start: false }))} href="/#"><ArrowBackIcon fontSize="large" /></a>
+                    </div>
+                    <ReactPlayer url={this.state.find.trailers}
+                        playing={true}
+                        className="video"
+                        onEnded={() => (this.setState({ card_start: false }))}
+                    />
+                </>
+            </div>
+        )
+    }
 }
 function mapStateToProps(state) {
     return {
