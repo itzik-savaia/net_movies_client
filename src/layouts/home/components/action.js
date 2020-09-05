@@ -65,7 +65,7 @@ class Action extends Component {
                                                 </div>
                                             ))))}
                                         </Slider>
-                                        {call_cart_movie()}
+                                        {this.call_cart_movie()}
                                     </div>
                                 </Fragment>
                                 : null}
