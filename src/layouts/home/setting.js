@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactPlayer from "react-player";
 import CancelIcon from '@material-ui/icons/Cancel';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import './components/scss/categorys.scss';
 import $ from 'jquery';
 
 export const state = {
-    find: {},
-    find_category: [],
+    find: Object,
     card_start: false,
 }
 
@@ -97,15 +97,18 @@ export const settings = {
 };
 
 export const call_cart_movie = () => {
-    return (
-        <div>
-            {state.find.photos != null ?
-                <div className="movie_card" key={state.find.id}>
-                    {state.card_start === false ? this.card_movie() : state.card_start === true ? this.card_video() : null}
-                </div>
-                : null}
-        </div>
-    )
+    console.log(state);
+    if (Object.keys(state.find).length !== 0) {
+        return (
+            <div>
+                {state.find.photos != null ?
+                    <div className="movie_card" key={state.find.id}>
+                        {state.card_start === false ? card_movie() : state.card_start === true ? card_video() : null}
+                    </div>
+                    : null}
+            </div>
+        )
+    }
 }
 
 export const card_movie = () => {
@@ -115,7 +118,9 @@ export const card_movie = () => {
                 <div className="info_section">
                     <a className="cancelBtn" onClick={() => (
                         setTimeout(() => {
-                            this.setState({ find: {}, card_start: false })
+                            state.card_start = false;
+                            state.find = {};
+                            console.log(state);
                         }, 500) + $('#card_movie').slideUp())} href="/#">
                         <CancelIcon fontSize="large" />
                     </a>
@@ -125,7 +130,7 @@ export const card_movie = () => {
                         <h4>{state.find.publishing_Year}</h4>
                         <div>
                             <button onClick={() => (
-                                this.setState({ card_start: true })
+                                state.card_start = true, card_video()
                             )} className="WhatchTrailerBtn">Trailer</button>
                             <span className="minutes">{state.find.minutes} min</span>
                             {state.find.types.map((type, i) => (
@@ -149,19 +154,25 @@ export const card_movie = () => {
 }
 
 export const card_video = () => {
-    return (
-        <div id="card_video" className="info_section video">
-            <>
-                <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    <a className="cancelBtn" onClick={() => (this.setState({ find: {}, card_start: false }))} href="/#"><CancelIcon fontSize="large" /></a>
-                    <a className="returnBtn" onClick={() => (this.setState({ card_start: false }))} href="/#"><ArrowBackIcon fontSize="large" /></a>
-                </div>
-                <ReactPlayer url={state.find.trailers}
-                    playing={true}
-                    className="video"
-                    onEnded={() => (this.setState({ card_start: false }))}
-                />
-            </>
-        </div>
-    )
+    console.log(state);
+    if (state.card_start !== false) {
+        return (
+            <div id="card_video" className="info_section video">
+                <Fragment>
+                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                        <a className="cancelBtn" onClick={() => (
+                            state.find = {},
+                            state.card_start = false
+                        )} href="/#"><CancelIcon fontSize="large" /></a>
+                        <a className="returnBtn" onClick={() => (state.card_start = false)} href="/#"><ArrowBackIcon fontSize="large" /></a>
+                    </div>
+                    <ReactPlayer url={state.find.trailers}
+                        playing={true}
+                        className="video"
+                        onEnded={() => (state.card_start = false)}
+                    />
+                </Fragment>
+            </div>
+        )
+    }
 }

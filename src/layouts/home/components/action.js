@@ -2,15 +2,15 @@ import React, { Component, Fragment } from 'react';
 import Slider from "react-slick";
 import { connect } from 'react-redux';
 import './scss/categorys.scss';
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import CancelIcon from '@material-ui/icons/Cancel';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+// import VisibilityIcon from '@material-ui/icons/Visibility';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import CancelIcon from '@material-ui/icons/Cancel';
+// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import $ from 'jquery';
-import { settings, call_cart_movie, card_movie, card_video, state } from '../setting';
+import { settings, call_cart_movie, state } from '../setting';
 
 
 class Action extends Component {
@@ -20,7 +20,6 @@ class Action extends Component {
             display: true,
             width: 600,
             find: state.find,
-            find_category: state.find_category,
             card_start: state.card_start,
             movies: this.props.Movies,
             categorys: this.props.Categorys,
@@ -39,7 +38,7 @@ class Action extends Component {
                                     <div className="row-header">
                                         <div className="rowTitle">
                                             <div className="row-header-title" key={Object.keys(categorys).find(c => c === "action")}>
-
+                                                {Object.keys(categorys).find(c => c === "action").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "action").substr(1)}
                                             </div>
                                         </div>
                                     </div>
@@ -54,15 +53,8 @@ class Action extends Component {
                                                                     <img src={photo.small_Picture} className="small_Picture" alt={photo.small_Picture} />
                                                                     <div className="btnBackround">
                                                                         <button className="btn"
-                                                                            onClick={() => {
-                                                                                state.find = movie
-                                                                                state.find_category = categorys.action
-                                                                                // this.setState({
-                                                                                //     find: movie,
-                                                                                //     find_category: categorys.action
-                                                                                // })
-                                                                            }}> ^
-                                                                </button>
+                                                                            onClick={() => { this.setState(state.find = movie) }}>^
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </Paper>
