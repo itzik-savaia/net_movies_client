@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-
 // // Get all movies 
 export const Fetch_All_Movies = () => {
     return (dispatch) => {
-        axios.get("https://localhost:44362/api/movie")
+        axios.get("https://net-movies-server.herokuapp.com/api/movie")
             .then((response) => {
                 if (response.status === 200) {
                     dispatch({
@@ -29,7 +28,7 @@ export const Fetch_All_Movies = () => {
 // // Get all movies in categorys 
 export const Fetch_All_Movies_In_Categorys = () => {
     return (dispatch) => {
-        axios.get("https://localhost:44362/api/movie/categorys")
+        axios.get("https://net-movies-server.herokuapp.com/api/movie/categorys")
             .then((response) => {
                 if (response.status === 200) {
                     dispatch({
