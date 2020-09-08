@@ -55,7 +55,8 @@ const StyledMenuItem = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
     grow: {
-        flexGrow: 1,
+        // flexGrow: 1,
+        margin: 0
     },
     color: {
         backgroundColor: grey[900]

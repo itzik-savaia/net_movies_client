@@ -345,6 +345,13 @@ iframe {
 }
 
 @media screen and (max-width: 768px) {
+  .MuiGrid-container {
+    top: 90px;
+    bottom: 0;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
   .movie_card{
     right: 6%;
     width: 111%;
