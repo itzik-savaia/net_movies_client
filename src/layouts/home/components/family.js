@@ -38,7 +38,9 @@ class Family extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "for_childern_and_the_whole_family")}>{Object.keys(categorys).find(c => c === "for_childern_and_the_whole_family")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "for_childern_and_the_whole_family")}>
+                                                {Object.keys(categorys).find(c => c === "for_childern_and_the_whole_family").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "for_childern_and_the_whole_family").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>

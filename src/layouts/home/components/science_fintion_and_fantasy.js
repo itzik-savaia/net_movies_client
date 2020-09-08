@@ -38,7 +38,9 @@ class Science_Fintion_And_Fantasy extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "science_fintion_and_fantasys")}>{Object.keys(categorys).find(c => c === "science_fintion_and_fantasys")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "science_fintion_and_fantasys")}>
+                                                {Object.keys(categorys).find(c => c === "science_fintion_and_fantasys").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "science_fintion_and_fantasys").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>

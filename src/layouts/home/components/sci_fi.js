@@ -37,7 +37,9 @@ class Sci_Fi extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "sci_Fis")}>{Object.keys(categorys).find(c => c === "sci_Fis")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "sci_Fis")}>
+                                                {Object.keys(categorys).find(c => c === "sci_Fis").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "sci_Fis").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>

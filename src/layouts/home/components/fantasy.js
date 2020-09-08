@@ -38,7 +38,9 @@ class Fantasy extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "fantasys")}>{Object.keys(categorys).find(c => c === "fantasys")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "fantasys")}>
+                                                {Object.keys(categorys).find(c => c === "fantasys").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "fantasys").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>

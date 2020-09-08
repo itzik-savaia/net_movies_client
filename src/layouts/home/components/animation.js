@@ -39,7 +39,9 @@ class Animation extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "animation")}>{Object.keys(categorys).find(c => c === "animation")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "animation")}>
+                                                {Object.keys(categorys).find(c => c === "animation").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "animation").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>

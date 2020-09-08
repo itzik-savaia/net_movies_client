@@ -38,7 +38,9 @@ class Sport extends Component {
                                 <Fragment key={i}>
                                     <div className="row-header">
                                         <div className="rowTitle">
-                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "sports")}>{Object.keys(categorys).find(c => c === "sports")}</div>
+                                            <div className="row-header-title" key={Object.keys(categorys).find(c => c === "sports")}>
+                                                {Object.keys(categorys).find(c => c === "sports").toUpperCase().substr(0, 1).toUpperCase() + Object.keys(categorys).find(c => c === "sports").substr(1)}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='top'>
