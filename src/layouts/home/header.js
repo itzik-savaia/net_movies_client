@@ -132,7 +132,7 @@ export default function Header() {
                     <h3 color='secondary'>NetMovies</h3>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton
+                        {/* <IconButton
                             edge="end"
                             aria-label="account of current user"
                             aria-controls={menuId}
@@ -141,7 +141,7 @@ export default function Header() {
                             color="inherit"
                         >
                             <Avatar className={classes.avatar}></Avatar>
-                        </IconButton>
+                        </IconButton> */}
                         <StyledMenu
                             id="customized-menu"
                             anchorEl={anchorEl}
