@@ -24,6 +24,7 @@
     "redux-logger": "^3.0.6",
     "slick-carousel": "^1.8.1"
   },
+  "node": "node server.js",
   "start": "react-scripts start",
   "scripts": {
     "start": "node server.js",
