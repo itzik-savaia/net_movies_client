@@ -352,6 +352,16 @@ iframe {
     overflow-y: scroll;
     overflow-x: hidden;
   }
+  .movie_card .info_section .movie_social ul{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+  }
+  .movie_card .info_section .movie_desc .text {
+    padding: 5px;
+    position: absolute;
+    top: 340px;
+  }
   .movie_card{
     right: 6%;
     width: 111%;
